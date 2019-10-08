@@ -14,6 +14,7 @@ pipeline {
                 terraform plan
                 '''                   
             }
+        } 
         stage('terraform_apply') {
             steps {
                 input message "Should we apply the Terraform configuration?"
@@ -21,6 +22,7 @@ pipeline {
                 terraform apply -auto-approve
                 '''
             }
+        }
         stage('terraform_destroy') {
             steps {
                 input message "Should we destroy the environment?"
@@ -31,7 +33,7 @@ pipeline {
                 '''
             }
         }
-    }
+    
+   }
 }
-
 
