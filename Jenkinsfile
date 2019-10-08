@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                 cd terraform
                 terraform init
-                terraform plan -out /home/livefire/myplan
+                terraform plan
                 '''                   
             }
         } 
@@ -20,7 +20,7 @@ pipeline {
                 input message: "Should we apply the Terraform configuration?"
                 sh '''
                 cd terraform
-                terraform apply -auto-approve /home/livefire/myplan
+                terraform apply -auto-approve
                 '''
             }
         }
