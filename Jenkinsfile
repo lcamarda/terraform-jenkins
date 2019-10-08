@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                 cd terraform
                 terraform init
-                rm myplan
+                rm myplan terraform.tfstate terraform.tfstate.backup
                 terraform plan -out ./myplan
                 '''                   
             }
