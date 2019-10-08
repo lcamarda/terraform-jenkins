@@ -19,6 +19,7 @@ pipeline {
             steps {
                 input message: "Should we apply the Terraform configuration?"
                 sh '''
+                cd terraform
                 terraform apply -auto-approve /home/livefire/myplan
                 '''
             }
@@ -27,6 +28,7 @@ pipeline {
             steps {
                 input message: "Should we destroy the environment?"
                 sh '''
+                cd terraform
                 terraform destroy -target=vsphere_virtual_machine.webvm -auto-approve
                 sleep 40
                 terraform destroy -auto-approve
