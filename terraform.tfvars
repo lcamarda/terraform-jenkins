@@ -1,7 +1,0 @@
-tenant_name = "dev"
-web_ip = "172.16.10.1/24"
-nsx_ip="192.168.110.15"
-nsx_password="VMware1!VMware1!"
-vsphere_user="administrator@vsphere.local"
-vsphere_password="VMware1!"
-vsphere_server="vcsa-01a.corp.local"
