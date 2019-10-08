@@ -30,7 +30,7 @@ pipeline {
                 sh '''
                 cd terraform
                 terraform destroy -target=vsphere_virtual_machine.webvm -auto-approve
-                sleep 40
+                sleep 60
                 terraform destroy -auto-approve
                 '''
             }
