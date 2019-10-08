@@ -17,7 +17,7 @@ pipeline {
         } 
         stage('terraform_apply') {
             steps {
-                input message "Should we apply the Terraform configuration?"
+                input message: "Should we apply the Terraform configuration?"
                 sh '''
                 terraform apply -auto-approve
                 '''
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('terraform_destroy') {
             steps {
-                input message "Should we destroy the environment?"
+                input message: "Should we destroy the environment?"
                 sh '''
                 terraform destroy -target=vsphere_virtual_machine.webvm -auto-approve
                 sleep 40
