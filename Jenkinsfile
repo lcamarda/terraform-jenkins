@@ -11,7 +11,8 @@ pipeline {
                 sh '''
                 cd terraform
                 terraform init
-                terraform plan
+                rm myplan
+                terraform plan -out ./myplan
                 '''                   
             }
         } 
@@ -20,7 +21,7 @@ pipeline {
                 input message: "Should we apply the Terraform configuration?"
                 sh '''
                 cd terraform
-                terraform apply -auto-approve
+                terraform apply -auto-approve ./myplan
                 '''
             }
         }
