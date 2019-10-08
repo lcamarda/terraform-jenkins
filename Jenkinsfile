@@ -10,8 +10,9 @@ pipeline {
             steps {
                 sh '''
                 cd terraform
-                terraform init
+                ls -la
                 rm myplan terraform.tfstate terraform.tfstate.backup
+                terraform init
                 terraform plan -out ./myplan
                 '''                   
             }
