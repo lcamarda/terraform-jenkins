@@ -20,3 +20,5 @@ variable "tenant_name" {
 variable "web_ip" {
 }
 
+variable "nat_ip" {
+}

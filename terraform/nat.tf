@@ -6,7 +6,7 @@ resource "nsxt_nat_rule" "rule1" {
   enabled                   = true
   logging                   = true
   nat_pass                  = false
-  translated_network        = "172.16.102.10"
+  translated_network        = "${var.nat_ip}"
   match_source_network      = "172.16.10.10"
    tag {
         scope = "tenant"
@@ -27,7 +27,7 @@ resource "nsxt_nat_rule" "rule2" {
   logging                   = true
   nat_pass                  = false
   translated_network        = "172.16.10.10"
-  match_destination_network = "172.16.102.10"
+  match_destination_network = "${var.nat_ip}"
    tag {
         scope = "tenant"
         tag = "${var.tenant_name}"

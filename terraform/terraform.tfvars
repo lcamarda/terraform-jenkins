@@ -1,4 +1,3 @@
-tenant_name = "dev"
 web_ip = "172.16.10.1/24"
 nsx_ip="192.168.110.15"
 nsx_password="VMware1!VMware1!"
