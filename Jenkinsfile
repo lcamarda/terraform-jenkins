@@ -41,6 +41,8 @@ pipeline {
             }
         } 
         stage('terraform_apply_prod') {
+            when { branch 'production'
+            }
             steps {
                 input message: "Should we apply the Terraform configuration in Production?"
                 sh '''
