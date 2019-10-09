@@ -1,9 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('fetch_latest_code') {
+        stage('fetch_latest_code_master') {
+            when { branch 'master'
+            }
             steps {
                 git branch: "master" , url: "https://github.com/lcamarda/terraform-jenkins.git"
+            }
+        }
+        stage('fetch_latest_code_development') {
+            when { branch 'development'
+            }
+            steps {
+                git branch: "development" , url: "https://github.com/lcamarda/terraform-jenkins.git"
+            }
+        }
+        stage('fetch_latest_code_production') {
+            when { branch 'production'
+            }
+            steps {
+                git branch: "production" , url: "https://github.com/lcamarda/terraform-jenkins.git"
             }
         }
         stage('init_and_plan') {
