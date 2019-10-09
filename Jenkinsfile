@@ -24,7 +24,7 @@ pipeline {
                 rm -f myplan terraform.tfstate terraform.tfstate.backup
                 terraform init
                 terraform plan -var="nat_ip=172.16.102.10" -var="tenant_name=dev" -out ./myplan
-                terraform apply -auto-approve -var="nat_ip=172.16.102.10" -var="tenant_name=dev" ./myplan
+                terraform apply -auto-approve ./myplan
                 '''                   
             }
         }
@@ -45,7 +45,7 @@ pipeline {
                 input message: "Should we apply the Terraform configuration in Production?"
                 sh '''
                 cd terraform
-                terraform apply -auto-approve  -var="nat_ip=172.16.102.20" -var="tenant_name=prod" ./myplan
+                terraform apply -auto-approve ./myplan
                 '''
             }
         }
