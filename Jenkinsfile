@@ -21,7 +21,6 @@ pipeline {
             steps {
                 sh '''
                 cd terraform
-                ls -la
                 rm -f myplan terraform.tfstate terraform.tfstate.backup
                 terraform init
                 terraform plan -var="nat_ip=172.16.102.10" -var="tenant_name=dev" -out ./myplan
